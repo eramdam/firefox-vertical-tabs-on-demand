@@ -7,6 +7,10 @@ Here's a demo, with the vertical tabs (Sidebery) being activated using a keyboar
 
 # Installation
 
+Compatibility notes, as of May 19th 2024:
+
+- macOS, Firefox 126
+
 ## Pre-setup
 
 First of all, you will need to enable `toolkit.legacyUserProfileCustomizations.stylesheets` in Firefox's `about:config` page.
