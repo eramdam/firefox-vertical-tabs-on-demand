@@ -79,3 +79,7 @@ The setup is fairly simple:
 2. Save your changes, and open the Bookmarks manager (`Bookmarks -> Manage bookmarks`)
 3. Go to the Bookmarks Toolbar section and move **all** your bookmarks into a single folder called `★`
 4. You're done! The custom CSS will visually replace that folder by Firefox's bookmark icon
+
+## Post-install
+
+From there on, every time you activate Sidebery, you will get a "native-like" vertical tabs experience. If, like me, you don't want to move your mouse to activate Sidebery, I recommend changing its default keyboard shortcut by going to `about:addons`, clicking the ⚙️ icon, and selecting "Manage Extensions Shortcuts," scrolling to Sidebery and choosing a shortcut for "Open/Close sidebar panel".
