@@ -1,0 +1,37 @@
+#root.root {
+  --nav-btn-height: 24px;
+}
+#root.root {
+  --ctx-menu-font: 0.875rem -apple-system;
+}
+#root.root {
+  --bookmarks-bookmark-font: 0.9375rem -apple-system;
+}
+#root.root {
+  --bookmarks-folder-font: 0.9375rem -apple-system;
+}
+#root.root {
+  --tabs-count-font: 0.5625rem -apple-system;
+}
+#root.root {
+  --tabs-font: 0.9375rem -apple-system;
+}
+#root.root {
+  --tabs-border-radius: 8px;
+}
+
+#root.root {
+  --general-margin: 8px;
+}
+
+#root.root {
+  font-family: -apple-system;
+  text-rendering: optimizeLegibility !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  #root.root {
+    --frame-bg: #1c1b21;
+    --toolbar-bg: #2b2a33;
+  }
+}
