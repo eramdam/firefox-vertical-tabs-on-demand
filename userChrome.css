@@ -1,133 +1,85 @@
 /* macOS specific styles */
 @media (-moz-platform: macos) {
-  :is([titlepreface="[Sidebery]"], [titlepreface="Tab Center Reborn"])
-    #TabsToolbar:not([customizing="true"]) {
-    visibility: collapse !important;
+  /* Hide horizontal tabs strip */
+  :is([titlepreface="[Sidebery]"], [titlepreface="Tab Center Reborn"]) {
+    & #TabsToolbar:not([customizing="true"]) {
+      visibility: collapse !important;
+    }
   }
 
   :root:not([customizing="true"]):is(
       [titlepreface="[Sidebery]"],
       [titlepreface="Tab Center Reborn"]
-    )
-    #nav-bar.browser-toolbar {
-    padding-left: 80px !important;
-  }
+    ) {
+    /* Move content of browser toolbar to the right to accomodate traffic lights */
+    & #nav-bar.browser-toolbar {
+      padding-left: 80px !important;
+    }
 
-  :root:not([customizing="true"]):is(
-      [titlepreface="[Sidebery]"],
-      [titlepreface="Tab Center Reborn"]
-    )
-    #TabsToolbar
-    .titlebar-buttonbox-container {
-    visibility: visible !important;
-    position: absolute;
-    top: 14px;
-    left: 0px;
-    display: block;
+    /* Move traffic lights down in the space */
+    & #TabsToolbar .titlebar-buttonbox-container {
+      visibility: visible !important;
+      position: absolute;
+      top: 14px;
+      left: 0px;
+      display: block;
+    }
   }
 }
 
 /* Windows specific styles */
-@media (-moz-platform: windows-win10) {
-  /* Hide main tabs toolbar */
-  :root[tabsintitlebar] {
-    --uc-window-control-width: 137px; /* Space at the right of nav-bar for window controls */
-    /* --uc-window-drag-space-width: 24px; */ /* To add extra window drag space in nav-bar */
+@media (-moz-platform: windows) {
+  :is([titlepreface="[Sidebery]"], [titlepreface="Tab Center Reborn"]) {
+    /* Hide horizontal tabs */
+    & #TabsToolbar:not([customizing="true"]) {
+      visibility: collapse !important;
+    }
+
+    /* Hide sidebar border */
+    & .sidebar-splitter {
+      opacity: 0;
+    }
   }
 
-  #nav-bar {
-    border-inline: var(--uc-window-drag-space-width, 80px) solid
-      var(--toolbar-bgcolor);
-    border-inline-style: solid !important;
-    border-right-width: calc(
-      var(--uc-window-control-width, 0px) +
-        var(--uc-window-drag-space-width, 0px)
-    );
+  :root:not([customizing="true"]):is(
+      [titlepreface="[Sidebery]"],
+      [titlepreface="Tab Center Reborn"]
+    ) {
+    /* Move content of toolbar to the left to accomodate titlebar controls */
+    & #nav-bar.browser-toolbar {
+      padding-right: 140px !important;
+    }
+    /* Move titlebar controls down */
+    & #TabsToolbar .titlebar-buttonbox-container {
+      visibility: visible !important;
+      position: absolute;
+      top: 0;
+      right: 0px;
+      display: block;
+      height: 40px;
 
-    padding-top: 0px !important;
-    margin-left: -80px; /* Removes the space left when hiding .titlebar-buttonbox-container */
-  }
+      /* Make sure titlbar buttons stretch */
+      & .titlebar-buttonbox {
+        height: 100%;
+      }
+    }
 
-  :root {
-    --uc-toolbar-height: 32px;
-    --chrome-content-separator-color: none !important;
-  }
-
-  :root:not([uidensity="compact"]) {
-    --uc-toolbar-height: 38px;
-  }
-
-  #TabsToolbar {
-    visibility: collapse !important;
-  }
-
-  /* Hide the Windows controls on the left side. */
-  #TabsToolbar .titlebar-buttonbox-container {
-    visibility: hidden !important;
-  }
-  /* Line up the Windows controls with the rest of the icons in the toolbar. */
-  .titlebar-buttonbox-container {
-    margin-top: 3px;
-  }
-
-  :root:not([inFullscreen]) #nav-bar {
-    margin-top: calc(0px - var(--uc-toolbar-height));
-    z-index: 2;
-  }
-
-  #toolbar-menubar {
-    min-height: unset !important;
-    height: var(--uc-toolbar-height) !important;
-    position: relative;
-  }
-
-  .titlebar-buttonbox {
-    z-index: 3 !important;
-    padding-right: 3px;
-  }
-
-  .titlebar-buttonbox * {
-    border-radius: 5px;
-    width: 35px;
-    height: 38px;
-  }
-
-  #main-menubar {
-    -moz-box-flex: 1;
-    background-color: var(--toolbar-bgcolor, --toolbar-non-lwt-bgcolor);
-    background-clip: padding-box;
-    border-right: 30px solid transparent;
-    border-image: linear-gradient(
-        to left,
-        transparent,
-        var(--toolbar-bgcolor, --toolbar-non-lwt-bgcolor) 30px
-      )
-      20 / 30px;
-  }
-
-  #toolbar-menubar:not([inactive]) {
-    z-index: 2;
-  }
-
-  #toolbar-menubar[inactive] > #menubar-items {
-    opacity: 0;
-    pointer-events: none;
-    margin-left: var(--uc-window-drag-space-width, 0px);
-  }
-
-  :root[inFullscreen] #nav-bar {
-    border-inline: none !important;
+    /* Necessary to tweak layering of titlebar controls */
+    & #titlebar {
+      z-index: 1;
+    }
+    & #nav-bar {
+      z-index: 0;
+    }
   }
 }
 
+/* Hides mutli-account containers icon */
 #page-action-buttons #pageAction-urlbar-_testpilot-containers {
   display: none;
 }
 
-#sidebar-box:not([lwt-sidebar]) {
-  appearance: unset !important;
-}
-
+/* Hide header of sidebar for Sidebery/Tab Center Reborn */
 :is(
     #sidebar-box[sidebarcommand*="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"],
     #sidebar-box[sidebarcommand*="tabcenter-reborn_eramdam-sidebar-action"]
@@ -137,12 +89,7 @@
   display: none;
 }
 
-#PlacesChevron {
-  display: none;
-}
-
 /* Optional: one-button bookmarks bar */
-
 toolbarbutton[label="★"][type="menu"][container="true"] > label {
   visibility: collapse !important;
 }
@@ -151,7 +98,9 @@ toolbarbutton[label="★"][type="menu"][container="true"] > image {
   list-style-image: url("chrome://browser/skin/bookmark-star-on-tray.svg");
   margin-left: 4px !important;
 }
+/* /Optional: one-button bookmarks bar */
 
+/* Hide the blue light thing when an extension requires more permission (some extensions ask it on every website and it bothers me) */
 #unified-extensions-button[attention] > .toolbarbutton-icon,
 .unified-extensions-item[attention]
   > .unified-extensions-item-action-button.toolbarbutton-1
