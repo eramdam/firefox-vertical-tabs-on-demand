@@ -26,29 +26,6 @@ First of all, you will need to enable `toolkit.legacyUserProfileCustomizations.s
 3. Create a `chrome` directory if it's not already present
 4. Copy the [`userChrome.css`](./userChrome.css) file from this repository into that folder.
 
-### Post-install tinkering (optional)
-
-1. Open the Developer Tools by pressing F12
-2. Look for the three dots menu at the top right of the window, open it and go to the Settings
-
-![alt text](meta/devtools-settings.png)
-
-3. Check `Enable browser chrome and add-on debugging toolboxes`
-
-![alt text](meta/devtools-settings-remote.png)
-
-4. You can close the Developer Tools now!
-5. Press <kbd>Shift+Alt+Command+I</kbd> on macOS or <kbd>Shift+Alt+Control+I</kbd> on Windows
-6. Click OK on the dialog that appears
-
-![alt text](meta/remote-debug-dialog.png)
-
-7. A Developer Tools window will appear, this one is special because it's debugging Firefox's actual UI. Open the `Style Editor` tab inside of it, and use the search bar on the left to look for `userChrome.css`
-
-![alt text](meta/devtools-userchrome.png)
-
-8. From there, you can edit the CSS and see the changes apply in real-time in Firefox's UI.
-
 ## Sidebery
 
 The style by itself won't do much of anything by default. We'll use [Sidebery](https://addons.mozilla.org/en-US/firefox/addon/sidebery/) for the actual vertical tabs functionality, but we will need to set it up a bit to make it work.
@@ -87,3 +64,26 @@ The setup is fairly simple:
 ## Post-install
 
 From there on, every time you activate Sidebery, you will get a "native-like" vertical tabs experience. If, like me, you don't want to move your mouse to activate Sidebery, I recommend changing its default keyboard shortcut by going to `about:addons`, clicking the ⚙️ icon, and selecting "Manage Extensions Shortcuts," scrolling to Sidebery and choosing a shortcut for "Open/Close sidebar panel".
+
+### Post-install tinkering (optional)
+
+1. Open the Developer Tools by pressing F12
+2. Look for the three dots menu at the top right of the window, open it and go to the Settings
+
+![alt text](meta/devtools-settings.png)
+
+3. Check `Enable browser chrome and add-on debugging toolboxes`
+
+![alt text](meta/devtools-settings-remote.png)
+
+4. You can close the Developer Tools now!
+5. Press <kbd>Shift+Alt+Command+I</kbd> on macOS or <kbd>Shift+Alt+Control+I</kbd> on Windows
+6. Click OK on the dialog that appears
+
+![alt text](meta/remote-debug-dialog.png)
+
+7. A Developer Tools window will appear, this one is special because it's debugging Firefox's actual UI. Open the `Style Editor` tab inside of it, and use the search bar on the left to look for `userChrome.css`
+
+![alt text](meta/devtools-userchrome.png)
+
+8. From there, you can edit the CSS and see the changes apply in real-time in Firefox's UI.
