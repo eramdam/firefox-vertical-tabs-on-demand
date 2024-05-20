@@ -66,10 +66,10 @@
 
     /* Necessary to tweak layering of titlebar controls */
     & #titlebar {
-      z-index: 1;
+      z-index: 500;
     }
     & #nav-bar {
-      z-index: 0;
+      z-index: 499;
     }
   }
 }
