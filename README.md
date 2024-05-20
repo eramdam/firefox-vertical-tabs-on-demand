@@ -13,7 +13,7 @@ Compatibility notes, as of May 19th 2024:
 - macOS, Firefox 126
 - Windows 11, Firefox 126
   - _should_ work on Windows 10 as-is but I don't have a Windows 10 machine to test
-- Could made to work on Linux but I don't have a Linux machine nor do I want to set one up, I welcome PRs though!
+- Could be made to work on Linux but I don't have a Linux machine nor do I want to set one up, I welcome PRs though!
 
 ## Pre-setup
 
